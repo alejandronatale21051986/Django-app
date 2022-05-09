@@ -1,0 +1,66 @@
+1) Creamos una carpeta  con nombre projectoDjango 
+con la siguiente direccion C:\Users\Alejandro\Desktop\Natale Alejandro\Django
+Todo esto fue realizado utilizando CMD como administrador.
+CD direccion de carpeta donde voy a guardar el proyecto
+django-admin startproject nombre del proyecto (webDjango)
+2) Abrimos visual  Studio Code, creamos un arcivo llamado views 
+con formato py.
+Importamos la libreria:
+ from django.http import HttpResponse, esta sirve :
+ Django utiliza objetos de solicitud y respuesta para pasar el estado a 
+ través del sistema. Cuando se solicita una página, 
+ Django crea un objeto HttpRequest que contiene metadatos sobre la solicitud. 
+ Luego, Django carga la vista apropiada,
+  pasando HttpRequest como primer argumento para la función de vista.
+
+3) Creamos una funcion:
+def saludo(request ):
+    return HttpResponse('Hola te saludo desde mi funcio')
+4) Luego vamos a nuestra carpeta url dentro de la lista =urlpatterns (Universal resource locator, ubica donde estan los recursos en internet) 
+    y escribimos lo siguiente 
+  path('',views.saludo,name='saludos'),# 1 argumento nombre url, sgundo nombre de nuestra funcion, y el nombre que le damos   (funcion que almacena una lista)
+  hacemos esto para vincular nuestra funcion con Fjango 
+
+5) Activamos nuestro servidror usando la terminal con el siguiente comando:
+python manage.py runserver
+
+6)Copiamos la direccion (VAMOS   a ver la pagina )y podemos ver cual fue el request, nos aparecio el mensaje que pusimos en la funcion (punto 3)
+
+7) Queremos crear un template con html . 
+¿Qué es un template en HTML?
+El elemento HTML <template> es un mecanismo para mantener el contenido HTML del lado del cliente que no se renderiza cuando se carga una página, 
+pero que posteriormente puede ser instanciado durante el tiempo de ejecución empleando.
+
+Creamos una carpeta templates fuera de la app django. La llamamos templates y adentro creamos un archivo con nombre index.html
+8) ¿Como hacemos para vincular esta carpeta ?
+ request: objetos de solicitud y respuesta para pasar el estado a través del sistema
+Vamos a la carpeta que dice settings.py. Buscamos la variable que dice  TEMPLATES[ 'DIRS':'NOMBRE DE CARPETA HTML QUE QUIERO VINCULAR'] 
+9)Vamos a la carpeta views y importamos from django.shortcuts import render #
+Modificamos la funcion pq ya no quiero que retorne una respuesta 'HttpResponse'
+quedaria asi:
+return render(request,'index.html',{})
+
+Quiero que me devuelva:
+ render(request,'index.html',{})3 argumentos 1)Request2)'NOMBRE DEL DOCUMENTO HTML3) diccionario
+ request: objetos de solicitud y respuesta para pasar el estado a través del sistema
+
+ 10) Vincular bootstrap con mi html
+ https://getbootstrap.com/
+ vamos a la pagina y copiamos el codigo CSS y javascrips y nos quedaria algo asi: 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+    crossorigin="anonymous">
+    
+    <title>index</title>
+</head>
+<body>
+    <h1>Hola mundo te saludos desde mi html</h1>
+    <h1>tengo otra linea</h1>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,2 @@
+¿Qué es un archivos estaticos?
+Cuando se desarrolla una aplicación web se manejan recursos estáticos como logos, videos, archivos javascript y css los cuales se agregan directamente a las plantillas html generadas, estos, normalmente son almacenados en un directorio llamado “public”.
